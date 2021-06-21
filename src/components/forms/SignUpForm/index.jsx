@@ -10,7 +10,8 @@ const initialValues = {
   userLastName: "",
   userNickname: "",
   userEmail: "",
-  userPassword: ""
+  userPassword: "",
+  userConfirmPassword: ""
 }
 
 function SignUpForm() {
@@ -20,7 +21,18 @@ function SignUpForm() {
       <p>
         We always keep your name and email address private.
       </p>
-      <Formik initialValues={initialValues} validationSchema={SIGN_UP_SCHEMA}>
+      <Formik initialValues={initialValues} 
+              validationSchema={SIGN_UP_SCHEMA}
+              onSubmit={(values, actions) => {
+                const { userPassword, userConfirmPassword } = values;
+                if(userPassword === userConfirmPassword){
+                  alert("Поздравляю! Пароли совпадают, регистрация возможна!");
+                  actions.resetForm();
+                }
+                else{
+                  alert("Проверьте пароль и повторите попытку!");
+                }
+              }}>
         <Form className={style.signUpForm}>
           <FormRow>
             <FormColumn name="userFirstName"

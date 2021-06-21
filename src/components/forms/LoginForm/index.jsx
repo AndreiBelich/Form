@@ -15,7 +15,15 @@ function LoginForm() {
   return (
     <article className={style.loginFormWrapper}>
       <h2 className={style.loginFormCaption}>Login to your account</h2>
-      <Formik initialValues={initialValues} validationSchema={LOGIN_SCHEMA}>
+      <Formik initialValues={initialValues} 
+              validationSchema={LOGIN_SCHEMA}
+              onSubmit={(values, actions) => {
+                console.log("Values: ", values);
+                console.log("Actions: ", actions);
+                const { userEmail, userPassword } = values;
+                alert(`Email: ${userEmail}\n Password: ${userPassword}`);
+                actions.resetForm();
+              }}>
         <Form className={style.loginForm}>
           <Field type="text" name="userEmail" placeholder="Email address"/>
           <ErrorMessage className={style.error} component="span" name="userEmail"/>
