@@ -1,0 +1,59 @@
+.loginFormWrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  max-width: 65%
+  margin: 0 auto
+  >h2
+    color: white
+    text-transform: uppercase
+    font-weight: bold
+    font-size: 2rem
+    margin-bottom: 20px
+
+.loginForm
+  display: flex
+  flex-direction: column
+  width: 100%
+  padding: 0 15px
+  >input
+    border: 1px solid transparent
+    outline: none
+    padding: 20px 10px
+    margin: 15px 0
+    border-radius: 5px
+
+.loginButton
+  text-transform: uppercase
+  background-color: #28D2D0
+  color: white
+  transition: background-color 1s ease-in-out
+  &:hover
+    background-color: #1a5e5c
+
+.error
+  color: #ee0b0b
+  border: 1px solid #ee0b0b
+  position: relative
+  text-align: center
+  padding: 10px
+  &::before
+    content: ""
+    position: absolute
+    top: -10px
+    left: 50%
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 0 10px 10px 10px
+    border-color: transparent transparent #ee0b0b transparent
+
+.loginFormRow
+  display: flex
+  justify-content: space-between
+  margin: 10px 0
+  >*
+    color: white
+    text-decoration: none
+
